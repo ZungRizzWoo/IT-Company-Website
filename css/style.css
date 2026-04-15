@@ -1,3 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
+
+/* Global Reset */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    transition: all .2s linear;
+    text-decoration: none;
+}
+
+/* --- ADD THE NEW BUTTON CODE HERE --- */
+.btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+}
 /* ===== THEME VARIABLES ===== */
 :root {
     --bg-color: #ffffff;
