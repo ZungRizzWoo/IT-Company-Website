@@ -1,14 +1,14 @@
 $(document).ready(function(){
-
+ 
      $('.fa-bars').click(function(){
         $(this).toggleClass('fa-times');
         $('.navbar').toggleClass('nav-toggle');
     });
-
+ 
     $(window).on('load scroll',function(){
         $('.fa-bars').removeClass('fa-times');
         $('.navbar').removeClass('nav-toggle');
-
+ 
         if($(window).scrollTop()>35)
         {
             $('.header').css({'background':'#002e5f','box-shadow':'0 .2rem .5rem rgba(0,0,0,.4)'});
@@ -18,7 +18,7 @@ $(document).ready(function(){
             $('.header').css({'background':'none','box-shadow':'none'});
         }
     });
-
+ 
     const counters = document.querySelectorAll('.counter');
     const speed = 120;
     counters.forEach(counter => {
@@ -35,7 +35,7 @@ $(document).ready(function(){
 	};
 	  updateCount();
    });
-
+ 
    (function ($) {
     "use strict";
     
@@ -45,7 +45,7 @@ $(document).ready(function(){
         loop: true,
         responsive: { 0: {items: 2}, 768: {items: 4}, 900: {items: 6} }
     });
-
+ 
     $(".testimonials-carousel").owlCarousel({
         autoplay: true,
         dots: true,
@@ -54,7 +54,7 @@ $(document).ready(function(){
     });
     
 })(jQuery);
-
+ 
 $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
         $('.back-to-top').fadeIn('slow');
@@ -66,12 +66,42 @@ $('.back-to-top').click(function () {
     $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
     return false;
 });
-
+ 
 $('.accordion-header').click(function(){
     $('.accordion .accordion-body').slideUp(500);
     $(this).next('.accordion-body').slideDown(500);
     $('.accordion .accordion-header span').text('+');
     $(this).children('span').text('-');
 });
-
+ 
+});
+ 
+/* ===== DARK / LIGHT THEME TOGGLE ===== */
+function toggleTheme() {
+    var html = document.documentElement;
+    var isDark = html.getAttribute('data-theme') === 'dark';
+    var newTheme = isDark ? 'light' : 'dark';
+ 
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+ 
+    var icon = document.getElementById('themeIcon');
+    var label = document.getElementById('themeLabel');
+    if (icon) icon.className = newTheme === 'dark' ? 'toggle-icon fas fa-moon' : 'toggle-icon fas fa-sun';
+    if (label) label.textContent = newTheme === 'dark' ? 'Dark' : 'Light';
+}
+ 
+// Apply saved theme immediately on page load (before DOM ready to avoid flash)
+(function () {
+    var saved = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+})();
+ 
+// Update button icons once DOM is ready
+document.addEventListener('DOMContentLoaded', function () {
+    var saved = localStorage.getItem('theme') || 'light';
+    var icon = document.getElementById('themeIcon');
+    var label = document.getElementById('themeLabel');
+    if (icon) icon.className = saved === 'dark' ? 'toggle-icon fas fa-moon' : 'toggle-icon fas fa-sun';
+    if (label) label.textContent = saved === 'dark' ? 'Dark' : 'Light';
 });
