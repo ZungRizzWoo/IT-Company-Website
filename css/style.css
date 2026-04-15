@@ -1354,4 +1354,28 @@ body{
         .faq .row .accordion-container{
             width: 100%;
         }
+/* Dev 7: Social Icon Styling */
+    .footer-contact .social-links a {
+        font-size: 18px;
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        line-height: 1;
+        padding: 8px 0;
+        margin-right: 4px;
+        border-radius: 50%;
+        text-align: center;
+        width: 36px;
+        height: 36px;
+        transition: 0.3s;
+    }
+
+    .footer-contact .social-links a:hover {
+        background: #00bfff; /* Your accent blue */
+        color: #fff;
+        text-decoration: none;
+    }
+
+
+
 }
