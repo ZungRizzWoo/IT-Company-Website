@@ -1,6 +1,6 @@
 /* ===== THEME VARIABLES ===== */
 :root {
-    --bg-color: #ffffff;
+   --bg-color: #ffffff;
     --bg-secondary: #f2f2f2;
     --text-color: #1a1a1a;
     --text-muted: #555555;
@@ -78,13 +78,70 @@ body{
     letter-spacing: .2rem;
 }
  
-.heading::before, .heading::after, .clients .section-header h2::before, .clients .section-header h2::after, .section-head h1::before, .section-head h1::after, .testimonials .section-header h2::before, .testimonials .section-header h2::after, .section-head-1 h4::before, .section-head-1 h4::after{
+.heading, 
+.clients .section-header h2, 
+.section-head h1, 
+.testimonials .section-header h2, 
+.section-head-1 h4 {
+    margin: clamp(1rem, 3vw, 2rem);
+    padding-top: clamp(3rem, 6vw, 6rem);
+    display: inline-block;
+    font-size: clamp(2rem, 4vw, 3.5rem); /* Responsive font */
+    color: var(--heading-color);
+    position: relative;
+    letter-spacing: clamp(0.1rem, 0.3vw, 0.2rem);
+}
+
+/* Decorative borders responsive */
+.heading::before, 
+.heading::after,
+.clients .section-header h2::before, 
+.clients .section-header h2::after,
+.section-head h1::before, 
+.section-head h1::after,
+.testimonials .section-header h2::before, 
+.testimonials .section-header h2::after,
+.section-head-1 h4::before, 
+.section-head-1 h4::after {
     content: '';
     position: absolute;
-    height: 2.5rem;
-    width: 2.5rem;
-    border-top: .4rem solid var(--heading-color);
-    border-left: .4rem solid var(--heading-color);
+    height: clamp(1.5rem, 2.5vw, 2.5rem);
+    width: clamp(1.5rem, 2.5vw, 2.5rem);
+    border-top: clamp(0.2rem, 0.4vw, 0.4rem) solid var(--heading-color);
+    border-left: clamp(0.2rem, 0.4vw, 0.4rem) solid var(--heading-color);
+}
+
+/* Position adjustments */
+.heading::before,
+.clients .section-header h2::before,
+.section-head h1::before,
+.testimonials .section-header h2::before,
+.section-head-1 h4::before {
+    top: clamp(4rem, 6vw, 5.8rem);
+    left: clamp(-1rem, -2vw, -2rem);
+}
+
+.heading::after,
+.clients .section-header h2::after,
+.section-head h1::after,
+.testimonials .section-header h2::after,
+.section-head-1 h4::after {
+    bottom: clamp(-0.5rem, -1vw, -0.5rem);
+    right: clamp(-1rem, -2vw, -2rem);
+    transform: rotate(180deg);
+}
+
+/* Extra mobile tweaks */
+@media (max-width: 600px) {
+    .heading, 
+    .clients .section-header h2, 
+    .section-head h1, 
+    .testimonials .section-header h2, 
+    .section-head-1 h4 {
+        text-align: center;
+        display: block;
+    }
+}
 }
  
 .faq .heading::before, .faq .heading::after{
